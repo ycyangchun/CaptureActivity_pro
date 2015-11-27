@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\EASWorkspace\CaptureActivity_pro\app\libs\zxing_code(jdk1.6).jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="92747391dfdc4d2cc595c7a6f184369d8e3aeba0">
-        <dex dex="C:\EASWorkspace\CaptureActivity_pro\app\build\intermediates\pre-dexed\debug\zxing_code(jdk1.6)_90033d3a83438d05087af1c134ca9df5f5053a72.jar" />
-    </item>
-
-</items>

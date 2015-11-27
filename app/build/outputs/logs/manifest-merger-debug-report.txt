@@ -128,7 +128,7 @@ ADDED from C:\EASWorkspace\CaptureActivity_pro\app\src\main\AndroidManifest.xml:
 	android:clearTaskOnLaunch
 		ADDED from C:\EASWorkspace\CaptureActivity_pro\app\src\main\AndroidManifest.xml:60:15-47
 	android:screenOrientation
-		ADDED from C:\EASWorkspace\CaptureActivity_pro\app\src\main\AndroidManifest.xml:59:15-58
+		ADDED from C:\EASWorkspace\CaptureActivity_pro\app\src\main\AndroidManifest.xml:59:15-52
 	android:stateNotNeeded
 		ADDED from C:\EASWorkspace\CaptureActivity_pro\app\src\main\AndroidManifest.xml:61:15-44
 	android:windowSoftInputMode
