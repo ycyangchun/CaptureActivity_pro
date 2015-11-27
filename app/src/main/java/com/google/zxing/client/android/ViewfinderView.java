@@ -16,9 +16,6 @@
 
 package com.google.zxing.client.android;
 
-import com.google.zxing.ResultPoint;
-import com.google.zxing.client.android.camera.CameraManager;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
@@ -28,6 +25,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.google.zxing.ResultPoint;
+import com.google.zxing.client.android.camera.CameraManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,11 +92,23 @@ public final class ViewfinderView extends View {
     int height = canvas.getHeight();
 
     // Draw the exterior (i.e. outside the framing rect) darkened
+
     paint.setColor(resultBitmap != null ? resultColor : maskColor);
+    int linewidht = 1;
+    canvas.drawRect(15 + frame.left, 15 + frame.top,15 + (linewidht + frame.left), 15 + (50 + frame.top), paint);
+    canvas.drawRect(15 + frame.left, 15 + frame.top,15 + (50 + frame.left), 15 + (linewidht + frame.top), paint);
+    canvas.drawRect(-15 + ((0 - linewidht) + frame.right),15 + frame.top, -15 + (1 + frame.right),15 + (50 + frame.top), paint);
+    canvas.drawRect(-15 + (-50 + frame.right), 15 + frame.top, -15+frame.right, 15 + (linewidht + frame.top), paint);
+    canvas.drawRect(15 + frame.left, -15 + (-49 + frame.bottom),15 + (linewidht + frame.left), -15 + (1 + frame.bottom),	paint);
+    canvas.drawRect(15 + frame.left, -15+ ((0 - linewidht) + frame.bottom), 15 + (50 + frame.left),	-15 + (1 + frame.bottom), paint);
+    canvas.drawRect(-15 + ((0 - linewidht) + frame.right), -15+ (-49 + frame.bottom), -15 + (1 + frame.right), -15+ (1 + frame.bottom), paint);
+    canvas.drawRect(-15 + (-50 + frame.right), -15 + ((0 - linewidht) + frame.bottom), -15 + frame.right, -15 + (linewidht - (linewidht - 1) + frame.bottom), paint);
+    /*
+     paint.setColor(resultBitmap != null ? resultColor : maskColor);
     canvas.drawRect(0, 0, width, frame.top, paint);
     canvas.drawRect(0, frame.top, frame.left, frame.bottom + 1, paint);
     canvas.drawRect(frame.right + 1, frame.top, width, frame.bottom + 1, paint);
-    canvas.drawRect(0, frame.bottom + 1, width, height, paint);
+    canvas.drawRect(0, frame.bottom + 1, width, height, paint);*/
 
     if (resultBitmap != null) {
       // Draw the opaque result bitmap over the scanning rectangle
@@ -109,8 +121,12 @@ public final class ViewfinderView extends View {
       paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
       scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
       int middle = frame.height() / 2 + frame.top;
+      int middleWidth = frame.width() / 2 + frame.left;
+      canvas.drawRect(frame.left + 15, middle - 1, frame.right - 15, middle + 2, paint);
+      canvas.drawRect(middleWidth -1, frame.top + 15, middleWidth +2, frame.bottom - 15, paint);
+      /*
       canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1, middle + 2, paint);
-      
+      */
       float scaleX = frame.width() / (float) previewFrame.width();
       float scaleY = frame.height() / (float) previewFrame.height();
 
